@@ -99,6 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="sub">
 								<li><a href="{{URL::to('/add-product')}}">Thêm Sản Phẩm</a></li>
 								<li><a href="{{URL::to('/all-product')}}">Liệt Kê Sản Phẩm</a></li>
+								<li><a href="{{URL::to('/deleted')}}">Sản Phẩm Đã Xoá</a></li>
 								
 							</ul>
 						</li>
@@ -109,15 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span>Quản Lí Đặt Hàng </span>
 							</a>
 							<ul class="sub">
-								<li><a href="###">Quản Lí Khách Hàng</a></li>
-								<li><a href="###">Quản Lí Đơn Hàng</a></li>
-								
+								<!-- <li><a href="###">Quản Lí Khách Hàng</a></li> -->
+								<li><a href="###">Quản Lí Đơn Hàng</a></li>							
 							</ul>
 						</li>
 
 					</ul>
 				</div>
-				<!-- sidebar menu end-->
+				>
 			</div>
 		</aside>
 		<!--sidebar end-->

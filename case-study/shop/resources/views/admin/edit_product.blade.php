@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ảnh Sản Phẩm</label>
-                            <input type="file" name="image" class="form-control" id="exampleInputEmail1" required>
+                            <input type="file" name="image" class="form-control" id="exampleInputEmail1">
                             <img src="{{URL::to('/source/image/product/'.$pro->image)}}">
                         </div>
                         <div class="form-group">

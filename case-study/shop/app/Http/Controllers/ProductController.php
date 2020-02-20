@@ -7,6 +7,7 @@ use Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Product;
 use Illuminate\Support\Facades\DB as FacadesDB;
 
 session_start();
@@ -21,7 +22,7 @@ class ProductController extends Controller
 
     public function all_product()
     {
-        $all_product = DB::table('products')->orderby('id', 'description')->get();
+        $all_product = DB::table('products')->whereNull('deleted_at')->orderby('id', 'description')->get();
         $manager_product = view('admin.all_product')->with('all_product', $all_product);
         return view('admin_trangchu')->with('admin.all_product', $manager_product);
     }
@@ -54,13 +55,26 @@ class ProductController extends Controller
         }
         DB::table('products')->where('id', $id)->Update($data);
         session::put('message', 'cap nhat san pham that bai');
-        return redirect()->back()->with(['flag' => 'success', 'message' => 'cap nhat san pham thanh cong']);
+        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cap nhat san pham thanh cong']);
     }
 
     public function delete_product($id){
-        DB::table('products')->where('id',$id)->delete();
+        $product = DB::table('products')->where('id', $id);
+        $product->update(['deleted_at' => date("Y-m-d H:i:s")]);
+
         session::put('message', 'xoa san pham thang cong');
-        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cap nhat san pham thanh cong']);
+        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'xoa san pham thanh cong']);
+    }
+
+    public function deleted_product(){
+        $all_product = DB::table('products')->whereNotNull('deleted_at')->orderby('id', 'description')->get();
+        return view('admin.deleted_product', compact('all_product'));
+    }
+
+    public function restore_product($id){
+        $product = DB::table('products')->where('id', $id);
+        $product->update(['deleted_at' => null]);
+        return redirect('all-product');
     }
 
     public function save_product(Request $request)

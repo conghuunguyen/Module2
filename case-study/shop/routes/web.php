@@ -115,3 +115,5 @@ Route::get('all-product', 'ProductController@all_product');
 
 Route::post('save-product', 'ProductController@save_product');
 Route::post('update-product/{id}', 'ProductController@update_product');
+Route::get('restore-product/{id}', 'ProductController@restore_product');
+Route::get('deleted', 'ProductController@deleted_product');
