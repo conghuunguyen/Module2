@@ -104,6 +104,20 @@ class ProductController extends Controller
         return redirect()->back()->with(['flag' => 'success', 'message' => 'them san pham thanh cong']);
     }
 
+    // quan li don hang
+    public function manage_order(){
+        
+        $all_order = DB::table('bills')->select('bills.*')->orderby('bills.id','note')->get();
+        // ->join('customer','bills.id_customer','=', 'customer.id')
+        // ->join('bill_detail','bills.id','=', 'bill_detail.id_bill')
+        // ->join('products','bill_detail.id_product','=','products.id')
+        // ->select('bills.*','customer.name','products.name')
+        // ->orderby('bills.id','note')->get();
+        $manage_order = view('admin.manage_order')->with('all_order', $all_order);
+        // return $all_order;
+        return view('admin_trangchu')->with('admin.manage_order', $manage_order);
+    }
+
     public function validateAttribute(Request $request)
     {
         $this->validate(

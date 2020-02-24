@@ -45,9 +45,9 @@
               </span></td>
             <td>
               <a href="{{URL::to('/restore-product/'.$pro->id)}}" class="active styling-edit" ui-toggle-class="">
-                <i><img src="source/image/quanli/icons/user_edit.png"></i></a>
+                <i><img src="source/image/quanli/icons/user_add.png"></i></a>
 
-              <a onclick="return confirm('Bạn có chắc là muốn xóa sản phẩm này ko?')" href="{{URL::to('/delete-product/'.$pro->id)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('không thể xoá sản phẩm này. vì em chưa làm?')" href="{{URL::to('/delete-product/'.$pro->id)}}" class="active styling-edit" ui-toggle-class="">
                 <i><img src="source/image/quanli/icons/user_delete.png"></i>
               </a>
             </td>

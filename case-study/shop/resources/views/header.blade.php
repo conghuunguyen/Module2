@@ -5,6 +5,8 @@
 					<ul class="top-menu menu-beta l-inline">
 						<li><a href=""><i class="fa fa-home"></i> 54 Nguyễn Trãi, TP Huế, TT Huế</a></li>
 						<li><a href=""><i class="fa fa-phone"></i> 0962 012 137</a></li>
+						
+
 					</ul>
 				</div>
 				<div class="pull-right auto-width-right">
@@ -37,7 +39,7 @@
 					</div>
 
 					<div class="beta-comp">
-					
+					<!-- gio hang -->
 						<div class="cart">
 							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
 							<div class="beta-dropdown cart-body">
