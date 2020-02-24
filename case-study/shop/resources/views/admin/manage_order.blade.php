@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Quản Lí Đơn Hàng
+      Liệt kê don hang
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-4">
@@ -12,41 +12,37 @@
       </div>
     </div>
     <div class="table-responsive">
-
+      <?php
+      $message = Session::get('message');
+      if ($message) {
+        echo '<span class="text-alert">' . $message . '</span>';
+        Session::put('message', null);
+      }
+      ?>
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
-            </th>
-            <th>Tên Khách Hàng </th>
-            <th>Số điện Thoại</th>
-            <th>Địa chỉ khách hàng</th>
-            <th>Tên Sản Phẩm</th>
-            <!-- <th>Giá Sản Phẩm</th> -->
-            <th>Số Lượng Sản Phẩm</th>
-            <th>Tổng Tiền</th>
-            <th>Hình Thức</th>
+            <th>Tên nguoi dat</th>
+            <th>Ten San Pham</th>
+            <th>tong tien</th>
+            <th>phuong thuc</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
           @foreach($all_order as $key => $order)
           <tr>
-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{App\Customer::find($order->id_customer)->name}}</td>
-            <td>{{App\Customer::find($order->id_customer)->phone_number}}</td>
-            <td>{{App\Customer::find($order->id_customer)->address}}</td>
             <td>{{App\Product::find($order->id)->name}}</td>
-            <td>{{App\BillDetail::find($order->id)->quantity}}</td>
             <td>{{App\Bill::find($order->id)->total}}</td>
             
-            <td><span class="text-ellipsis">
-              </span></td>
             <td>
-            <button type="submit" class="btn btn-info">Thanh Toan</button>
+              <a href="{{URL::to('/view-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
+              <i><img src="source/image/quanli/icons/group.png"></i></a>
+              <br>
+              <a onclick="return confirm('Bạn có chắc là muốn xóa don hang này ko?')" href="{{URL::to('/delete-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
+              <i><img src="source/image/quanli/icons/user_delete.png"></i>
+              </a>
             </td>
           </tr>
           @endforeach
@@ -56,7 +52,7 @@
     <footer class="panel-footer">
       <div class="row">
         <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm"></small>
+          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">

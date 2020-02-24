@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -116,6 +117,12 @@ class ProductController extends Controller
         $manage_order = view('admin.manage_order')->with('all_order', $all_order);
         // return $all_order;
         return view('admin_trangchu')->with('admin.manage_order', $manage_order);
+    }
+
+    public function view_order($id){
+        $order_by_id = Bill::find($id);
+        $manage_order_by_id = view('admin.view_order')->with('order_by_id', $order_by_id);
+        return view('admin_trangchu')->with('admin.view_order', $manage_order_by_id);
     }
 
     public function validateAttribute(Request $request)
