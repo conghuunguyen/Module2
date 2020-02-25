@@ -3,25 +3,25 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-     thong tin khach hang
+      thông tin khách hàng
     </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th>Tên khach hang</th>
-            <th>email</th>
-            <th>dia chi</th>
-            <th>so dien thoai</th>
+            <th>Tên Khách Hàng</th>
+            <th>Email</th>
+            <th>Địa Chỉ</th>
+            <th>Số Điện Thoại</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
-        <tbody> 
-          <tr>           
-          <td>{{$order_by_id->customer->name}}</td>
+        <tbody>
+          <tr>
+            <td>{{$order_by_id->customer->name}}</td>
             <td>{{$order_by_id->customer->email}}</td>
-            <td>{{$order_by_id->customer->address}}</td> 
-            <td>{{$order_by_id->customer->phone_number}}</td>      
+            <td>{{$order_by_id->customer->address}}</td>
+            <td>{{$order_by_id->customer->phone_number}}</td>
           </tr>
         </tbody>
       </table>
@@ -34,26 +34,35 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      chi tiet san pham
+      chi tiết sản phẩm
     </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
             </th>
-            <th>Tên san pham</th>
-            <th>so luong</th>
-            <th>gia san pham</th>
-            <th>tong tien</th>          
+            <th>Tên Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Giá Sản Phẩm</th>
+            <th>Tổng Tiền</th>
             <th style="width:30px;"></th>
-          </tr>       
+          </tr>
         </thead>
-        <tbody> 
-
-
+        <tbody>
+          @foreach($order_by_id->bill_detail as $key=>$by_id)
           <tr>
-            <td>{{$order_by_id->bill_detail}}</td>
-          </tr> 
+            <td>{{$by_id->product->name}}</td>
+            <td>{{$by_id->quantity}}</td>
+            <td>{{$by_id->unit_price}}</td>
+            <td>{{ $by_id->quantity * $by_id->unit_price }}</td>
+          </tr>
+          @endforeach
+          <tr>
+            <th><u>Tổng Tiền Hoá Đơn:</u></th>
+            <td></td>
+            <td></td>
+            <td><u><b>{{$order_by_id->total}}</b></u></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -64,24 +73,27 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-     thong tin giao hang
+      Thông Tin Giao Hàng
     </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th>Tên nguoi nhan hang</th>
-            <th>dia chi</th>
-            <th>so dien thoai</th>
+            <th>Tên Người Nhận Hàng</th>
+            <th>Địa Chỉ</th>
+            <th>Số Điện Thoại</th>
+            <th>Ghi Chú</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
-        <tbody>        
+        <tbody>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>       
-          </tr>   
+            <td>{{$order_by_id->customer->name}}</td>
+            <td>{{$order_by_id->customer->address}}</td>
+            <td>{{$order_by_id->customer->phone_number}}</td>
+            <td>{{$order_by_id->customer->note}}</td>
+
+          </tr>
         </tbody>
       </table>
     </div>

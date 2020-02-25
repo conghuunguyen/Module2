@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê don hang
+      Liệt Kê Đơn Hàng
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-4">
@@ -22,10 +22,10 @@
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th>Tên nguoi dat</th>
-            <th>Ten San Pham</th>
-            <th>tong tien</th>
-            <th>phuong thuc</th>
+            <th>Tên Người Đặt</th>
+            <th>Ten Sản Phẩm</th>
+            <th>Tổng Tiền Hoá Đơn</th>
+            <th>Phương Thức</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>

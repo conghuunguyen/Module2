@@ -62,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					<li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-							<img alt="" src="{{asset('source/image/admin/2.png')}}">
+							<img alt="" src="{{asset('/source/image/admin/3.png')}}">
 							<span class="username">Huu Nguyen</span>
 							<b class="caret"></b>
 						</a>

@@ -36,7 +36,6 @@
 							<p class="pull-left">Tìm thấy {{count($new_product)}} sản phẩm</p>
 							<div class="clearfix"></div>
 						</div>
-
 						<div class="row">
 							@foreach($new_product as $new)
 							<div class="col-sm-3">
