@@ -77,7 +77,6 @@ class PageController extends Controller
 
     public function postCheckout(Request $req){
         $cart = Session::get('cart');
-
         $customer = new Customer;
         $customer->name = $req->name;
         $customer->gender = $req->gender;

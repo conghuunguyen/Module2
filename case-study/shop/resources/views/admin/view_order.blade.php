@@ -34,7 +34,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      chi tiết sản phẩm
+      chi tiết hoá đơn
     </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
@@ -61,7 +61,7 @@
             <th><u>Tổng Tiền Hoá Đơn:</u></th>
             <td></td>
             <td></td>
-            <td><u><b>{{$order_by_id->total}}</b></u></td>
+            <td><u><b>{{$order_by_id->total}}</b></u>.VNĐ</td>
           </tr>
         </tbody>
       </table>

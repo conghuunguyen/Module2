@@ -59,7 +59,7 @@
 											@endif
 										</p>
 									</div>
-									<br></br>
+									<br>
 									<div class="single-item-caption">
 										<a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}"><i class="fa fa-shopping-cart"></i></a>
 										<a class="beta-btn primary" href="{{ route('chitietsanpham',$new->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
@@ -82,11 +82,12 @@
 						</div>
 						<div class="row">
 							@foreach($sanpham_khuyenmai as $spkm)
-							<div class="col-sm-3">
+							<div class="col-sm-3" style="margin-bottom: 25px">
 								<div class="single-item">
 									<div class="single-item-header">
 										<a href="{{route('chitietsanpham',$spkm->id)}}"><img src="source/image/product/{{$spkm->image}}" alt="" height="250px"></a>
 									</div>
+									
 									<div class="single-item-body">
 										<p class="single-item-title">{{$spkm->name}}</p>
 										<p class="single-item-price" style="font-size: 18px">
@@ -94,8 +95,8 @@
 											<span class="flash-sale">{{number_format($spkm->promotion_price)}} đồng</span>
 										</p>
 									</div>
-									<br></br>
-									<div class="single-item-caption">
+									<br>
+									<div class="single-item-caption" style="margin-top: 0px">
 										<a class="add-to-cart pull-left" href="{{route('themgiohang',$spkm->id)}}"><i class="fa fa-shopping-cart"></i></a>
 										<a class="beta-btn primary" href="{{ route('chitietsanpham',$spkm->id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
@@ -103,6 +104,7 @@
 								</div>
 							</div>
 							@endforeach
+							
 						</div>
 						<div class="row">{{$sanpham_khuyenmai->links()}}</div>
 					</div> <!-- .beta-products-list -->

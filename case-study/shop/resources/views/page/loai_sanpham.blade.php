@@ -29,7 +29,7 @@
 					<div class="beta-products-list">
 						<h4>New Products</h4>
 						<div class="beta-products-details">
-							<p class="pull-left">438 styles found</p>
+							<p class="pull-left"></p>
 							<div class="clearfix"></div>
 						</div>
 
@@ -43,7 +43,7 @@
 									<div class="single-item-header">
 										<a href="{{route('chitietsanpham',$sp->id)}}"><img src="source/image/product/{{$sp->image}}" alt="" height="250px"></a>
 									</div>
-									<div class="single-item-body">
+									<div class="br-item-body">
 										<p class="single-item-title">{{$sp->name}}</p>
 										<p class="single-item-price" style="font-size: 18px">
 										@if($sp->promotion_price !=0)
@@ -54,13 +54,13 @@
 										@endif
 										</p>
 									</div>
-									<br></br>
+									<br>
 									<div class="single-item-caption">
 										<a class="add-to-cart pull-left" href="{{ route('themgiohang',$sp->id)}}"><i class="fa fa-shopping-cart"></i></a>
 										<a class="beta-btn primary" href="{{ route('chitietsanpham',$sp->id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
-									<br></br>
+									<br>
 								</div>
 							</div>
 						@endforeach
@@ -96,7 +96,7 @@
 										@endif
 										</p>
 									</div>
-									<br></br>
+									<br>
 									<div class="single-item-caption">
 										<a class="add-to-cart pull-left" href="{{ route('themgiohang',$sp_k->id)}}"><i class="fa fa-shopping-cart"></i></a>
 										<a class="beta-btn primary" href="{{ route('chitietsanpham',$sp_k->id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a>

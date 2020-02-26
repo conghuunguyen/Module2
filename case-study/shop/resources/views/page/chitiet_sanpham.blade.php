@@ -75,7 +75,7 @@
 							<p>{{$sanpham->description}}</p>
 						</div>
 					</div>	
-					<div class="well">
+					<!-- <div class="well">
 						<h4>Viết bình luận... <span class="glyphicon glyphicon-pencil"></span></h4>
 						<form role="form">
 							<div class="form-group">
@@ -83,7 +83,7 @@
 							</div>
 							<button type="submit" class="btn btn-primary">GỬI</button>
 						</form>
-					</div>
+					</div> -->
 					<div class="space50">&nbsp;</div>
 					<div class="beta-products-list">
 						<h4>Sản phẩm tương tự</h4>

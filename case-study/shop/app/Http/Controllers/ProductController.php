@@ -88,13 +88,11 @@ class ProductController extends Controller
         $data['unit'] = $request->unit;
         $get_image = $request->file('image');
         if ($get_image) {
-            // return 'yr';
             $get_name_image = $get_image->getClientOriginalName();
 
             $new_image = $get_name_image . rand(0, 99) . "." . $get_image->getClientOriginalExtension();
             $get_image->move('source/image/product/', $new_image);
             $data['image'] = $new_image;
-            // return $data;
             DB::table('products')->insert($data);
             session::put('message', 'them san pham thanh cong');
             return redirect()->back()->with(['flag' => 'success', 'message' => 'them san pham thanh cong']);
@@ -115,7 +113,6 @@ class ProductController extends Controller
         // ->select('bills.*','customer.name','products.name')
         // ->orderby('bills.id','note')->get();
         $manage_order = view('admin.manage_order')->with('all_order', $all_order);
-        // return $all_order;
         return view('admin_trangchu')->with('admin.manage_order', $manage_order);
     }
 
