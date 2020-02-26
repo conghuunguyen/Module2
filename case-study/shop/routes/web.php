@@ -107,18 +107,14 @@ Route::get('admin-logout', 'AdminController@admin_logout');
 
 
 // trang quan li cua hang
-
 Route::get('add-product', 'ProductController@add_product');
+Route::get('all-product', 'ProductController@all_product');
 Route::get('edit-product/{id}', 'ProductController@edit_product');
 Route::get('delete-product/{id}', 'ProductController@delete_product');
-Route::get('all-product', 'ProductController@all_product');
-
+Route::get('deleted', 'ProductController@deleted_product');
+Route::get('restore-product/{id}', 'ProductController@restore_product');
 Route::post('save-product', 'ProductController@save_product');
 Route::post('update-product/{id}', 'ProductController@update_product');
-Route::get('restore-product/{id}', 'ProductController@restore_product');
-
-// xoa mem
-Route::get('deleted', 'ProductController@deleted_product');
 
 // quan li don hang
 

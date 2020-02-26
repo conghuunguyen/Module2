@@ -33,13 +33,12 @@ Smartphone Compatible web template" />
 		<form action="{{URL::to('/admin-dashboard')}}" method="post">
              {{csrf_field()}}
 			<input type="text" class="ggg" name="email" placeholder="nhap email" required="">
-			<input type="password" class="ggg" name="password" placeholder=" nhap password" required="">
-			<span><input type="checkbox" />Nhớ Lần Đăng Nhập Tiếp Theo</span>
+			<input type="password" class="ggg" name="password" placeholder=" nhap mật khẩu" required="">
+			<span><input type="checkbox"/>Nhớ Lần Đăng Nhập Tiếp Theo</span>
 			<h6><a href="#">Quên Mật Khẩu?</a></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng Nhập" name="login">
 		</form>
-		<!-- <p>Don't Have an Account ?<a href="registration.html">Create an account</a></p> -->
 </div>
 </div>
 <script src="{{asset('/js/bootstrap.js')}}"></script>
@@ -47,7 +46,6 @@ Smartphone Compatible web template" />
 <script src="{{asset('/js/scripts.js')}}"></script>
 <script src="{{asset('/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('/js/jquery.nicescroll.js')}}"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="js/jquery.scrollTo.js"></script>
 </body>
 </html>

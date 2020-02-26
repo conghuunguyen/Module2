@@ -31,6 +31,7 @@ class ProductController extends Controller
     public function edit_product($id)
     {
         $edit_product = DB::table('products')->where('id', $id)->get();
+        // return $edit_product;
         $manager_product = view('admin.edit_product')->with('edit_product', $edit_product);
         return view('admin_trangchu')->with('admin.edit_product', $manager_product);
     }
@@ -64,7 +65,7 @@ class ProductController extends Controller
         $product->update(['deleted_at' => date("Y-m-d H:i:s")]);
 
         session::put('message', 'xoa san pham thang cong');
-        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'xoa san pham thanh cong']);
+        return redirect()->back()->with(['flag' => 'success', 'message' => 'xoa san pham thanh cong']);
     }
 
     public function deleted_product(){

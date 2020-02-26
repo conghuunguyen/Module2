@@ -23,7 +23,7 @@
         <thead>
           <tr>
             <th>Tên Người Đặt</th>
-            <th>Ten Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
             <th>Tổng Tiền Hoá Đơn</th>
             <th>Phương Thức</th>
             <th style="width:30px;"></th>
@@ -43,6 +43,7 @@
               <a onclick="return confirm('Bạn có chắc là muốn xóa don hang này ko?')" href="{{URL::to('/delete-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
               <i><img src="source/image/quanli/icons/user_delete.png"></i>
               </a>
+              <!-- <a href="##"><i><img src="source/image/quanli/icons/chuathanhtoan.png"></i></a> -->
             </td>
           </tr>
           @endforeach
@@ -52,7 +53,7 @@
     <footer class="panel-footer">
       <div class="row">
         <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+          <small class="text-muted inline m-t-sm m-b-sm"></small>
         </div>
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">

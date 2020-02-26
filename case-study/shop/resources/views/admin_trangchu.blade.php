@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<header class="header fixed-top clearfix">
 			<!--logo start-->
 			<div class="brand">
-				<a href="{{route('dashboard')}}" class="logo">
+				<a href="{{route('trang-chu')}}" class="logo">
 				BakersAlley
 				</a>
 				<div class="sidebar-toggle-box">
