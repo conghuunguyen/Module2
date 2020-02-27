@@ -121,5 +121,10 @@ Route::post('update-product/{id}', 'ProductController@update_product');
 Route::get('manage-order', 'ProductController@manage_order');
 Route::get('view-order/{id}', 'ProductController@view_order');
 
+// thanh toan don
+Route::get('payment-order/{id}', 'ProductController@payment_order');
+Route::get('debit-order/{id}', 'ProductController@debit_order');
+
+
 
 

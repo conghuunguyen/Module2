@@ -26,6 +26,7 @@
             <th>Tên Sản Phẩm</th>
             <th>Tổng Tiền Hoá Đơn</th>
             <th>Phương Thức</th>
+            <th>Trang Thai</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
@@ -34,19 +35,37 @@
           <tr>
             <td>{{App\Customer::find($order->id_customer)->name}}</td>
             <td>{{App\Product::find($order->id)->name}}</td>
-            <td>{{App\Bill::find($order->id)->total}}</td>
+            <td>{{App\Bill::find($order->id)->total}}.VNĐ</td>
             
             <td>
               <a href="{{URL::to('/view-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
-              <i><img src="source/image/quanli/icons/group.png"></i></a>
+              <i><img src="source/image/quanli/icons/group.png" width="20px"></i></a>
               <br>
               <a onclick="return confirm('Bạn có chắc là muốn xóa don hang này ko?')" href="{{URL::to('/delete-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
-              <i><img src="source/image/quanli/icons/user_delete.png"></i>
+              <i><img src="source/image/quanli/icons/user_delete.png" width="20px"></i>
               </a>
               <!-- <a href="##"><i><img src="source/image/quanli/icons/chuathanhtoan.png"></i></a> -->
             </td>
+            </span></td>
+
+            <td><span class="text-ellipsis">
+              <?php 
+              if($order->status==0){  
+                ?>
+              <a onclick="return confirm('Thanh toán đơn hàng')" href="{{URL::to('/payment-order/'.$order->id)}}"  class="active styling-edit" ui-toggle-class="">
+              <i><img src="/source/image/quanli/icons/2.png" width="50px">chưa thanh toán</i></a>
+              <?php
+              }else{
+                ?>
+              <a href="{{URL::to('/debit-order/'. $order->id)}}" class="active styling-edit" ui-toggle-class="">
+              <i><img src="/source/image/quanli/icons/3.png" width="50px" >đã thanh toán</i></a>
+              <?php
+              }
+              ?></span></td>
           </tr>
+          
           @endforeach
+          
         </tbody>
       </table>
     </div>
@@ -57,12 +76,7 @@
         </div>
         <div class="col-sm-7 text-right text-center-xs">
           <ul class="pagination pagination-sm m-t-none m-b-none">
-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+          {{ $all_order->links() }}
           </ul>
         </div>
       </div>

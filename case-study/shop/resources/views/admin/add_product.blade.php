@@ -32,7 +32,10 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Giá Khuyến Mãi</label>
                             <input type="text" name="promotion_price" class="form-control" id="exampleInputEmail1"> </div>
-
+                    
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Phân Loại Sản Phẩm</label>
+                            <input type="text" name="id_type" class="form-control" id="exampleInputEmail1"> </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mô Tả Sản Phẩm</label>
                             <textarea style="resize:none" rows="8" class="form-control" name="description" id="exampleInputEmail1"></textarea>

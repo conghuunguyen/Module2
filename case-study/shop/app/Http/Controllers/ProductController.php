@@ -52,12 +52,12 @@ class ProductController extends Controller
             $get_image->move('source/image/product/', $new_image);
             $data['image'] = $new_image;
             DB::table('products')->where('id', $id)->Update($data);
-            session::put('message', 'them san pham thanh cong');
-            return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cap nhat san pham thanh cong']);
+            session::put('message', 'Thêm Sản Phẩm Thành Công');
+            return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cập nhật sản phẩm thành công']);
         }
         DB::table('products')->where('id', $id)->Update($data);
         session::put('message', 'cap nhat san pham that bai');
-        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cap nhat san pham thanh cong']);
+        return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cập nhật sản phẩm thành công']);
     }
 
     public function delete_product($id){
@@ -87,6 +87,7 @@ class ProductController extends Controller
         $data['unit_price'] = $request->unit_price;
         $data['promotion_price'] = $request->promotion_price;
         $data['unit'] = $request->unit;
+        $data['id_type'] = $request->id_type;
         $get_image = $request->file('image');
         if ($get_image) {
             $get_name_image = $get_image->getClientOriginalName();
@@ -107,7 +108,8 @@ class ProductController extends Controller
     // quan li don hang
     public function manage_order(){
         
-        $all_order = DB::table('bills')->select('bills.*')->orderby('bills.id','note')->get();
+        $all_order = DB::table('bills')->select('bills.*')->orderby('bills.id','note')->paginate(3);
+        // return $all_order;
         // ->join('customer','bills.id_customer','=', 'customer.id')
         // ->join('bill_detail','bills.id','=', 'bill_detail.id_bill')
         // ->join('products','bill_detail.id_product','=','products.id')
@@ -117,30 +119,43 @@ class ProductController extends Controller
         return view('admin_trangchu')->with('admin.manage_order', $manage_order);
     }
 
+    // show don hang
     public function view_order($id){
         $order_by_id = Bill::find($id);
         $manage_order_by_id = view('admin.view_order')->with('order_by_id', $order_by_id);
         return view('admin_trangchu')->with('admin.view_order', $manage_order_by_id);
     }
 
-    public function validateAttribute(Request $request)
-    {
-        $this->validate(
-            $request,
-            [
-                'name' => 'required',
-                'description' => 'required',
-                'unit_price' => 'required',
-                'promotion_price' => 'required',
-                'unit' => 'required'
-            ],
-            [
-                'name.required' => 'Vui lòng nhập email',
-                'description.required' => 'Không đúng định dạng email',
-                'unit_price.required' => 'Email đã có người sử dụng',
-                'promotion_price.required' => 'Vui lòng nhập mật khẩu',
-                'unit.required' => 'Mật khẩu không giống nhau',
-            ]
-        );
+    // thanh toán đơn hàng
+    public function payment_order($id){
+        DB::table('bills')->where('id', $id)->update(['status' => 1]);
+        return redirect()->back();
     }
+
+    public function debit_order($id){
+        DB::table('bills')->where('id', $id)->update(['status' => 0]);
+        // Session::put('message','thanh toan san pham thanh chong');
+        return redirect()->back();
+    }
+
+    // public function validateAttribute(Request $request)
+    // {
+    //     $this->validate(
+    //         $request,
+    //         [
+    //             'name' => 'required',
+    //             'description' => 'required',
+    //             'unit_price' => 'required',
+    //             'promotion_price' => 'required',
+    //             'unit' => 'required'
+    //         ],
+    //         [
+    //             'name.required' => 'Vui lòng nhập email',
+    //             'description.required' => 'Không đúng định dạng email',
+    //             'unit_price.required' => 'Email đã có người sử dụng',
+    //             'promotion_price.required' => 'Vui lòng nhập mật khẩu',
+    //             'unit.required' => 'Mật khẩu không giống nhau',
+    //         ]
+    //     );
+    // }
 }
