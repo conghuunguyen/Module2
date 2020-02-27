@@ -60,10 +60,10 @@ class ProductController extends Controller
         return redirect::to('all-product')->with(['flag' => 'success', 'message' => 'cập nhật sản phẩm thành công']);
     }
 
+    // xoa mem
     public function delete_product($id){
         $product = DB::table('products')->where('id', $id);
         $product->update(['deleted_at' => date("Y-m-d H:i:s")]);
-
         session::put('message', 'xoa san pham thang cong');
         return redirect()->back()->with(['flag' => 'success', 'message' => 'xoa san pham thanh cong']);
     }
@@ -77,6 +77,13 @@ class ProductController extends Controller
         $product = DB::table('products')->where('id', $id);
         $product->update(['deleted_at' => null]);
         return redirect('all-product');
+    }
+
+    // xoa cung
+    public function delete_deleted($id){
+        $delete= DB::table('products')->where('id', $id)->delete();
+        return redirect::to('deleted')->with(['flag' => 'success', 'message' => 'xoa sản phẩm thành công']);
+
     }
 
     public function save_product(Request $request)
@@ -109,12 +116,6 @@ class ProductController extends Controller
     public function manage_order(){
         
         $all_order = DB::table('bills')->select('bills.*')->orderby('bills.id','note')->paginate(3);
-        // return $all_order;
-        // ->join('customer','bills.id_customer','=', 'customer.id')
-        // ->join('bill_detail','bills.id','=', 'bill_detail.id_bill')
-        // ->join('products','bill_detail.id_product','=','products.id')
-        // ->select('bills.*','customer.name','products.name')
-        // ->orderby('bills.id','note')->get();
         $manage_order = view('admin.manage_order')->with('all_order', $all_order);
         return view('admin_trangchu')->with('admin.manage_order', $manage_order);
     }
@@ -134,8 +135,13 @@ class ProductController extends Controller
 
     public function debit_order($id){
         DB::table('bills')->where('id', $id)->update(['status' => 0]);
-        // Session::put('message','thanh toan san pham thanh chong');
         return redirect()->back();
+    }
+
+    public function delete_order($id){
+        $delete= DB::table('bills')->where('id', $id)->delete();
+        return redirect::to('manage-order')->with(['flag' => 'success', 'message' => 'Xoá đơn hàng thành công']);
+
     }
 
     // public function validateAttribute(Request $request)

@@ -116,10 +116,15 @@ Route::get('restore-product/{id}', 'ProductController@restore_product');
 Route::post('save-product', 'ProductController@save_product');
 Route::post('update-product/{id}', 'ProductController@update_product');
 
+Route::get('delete-deleted/{id}', 'ProductController@delete_deleted');
+
+
 // quan li don hang
 
 Route::get('manage-order', 'ProductController@manage_order');
 Route::get('view-order/{id}', 'ProductController@view_order');
+Route::get('delete-order/{id}', 'ProductController@delete_order');
+
 
 // thanh toan don
 Route::get('payment-order/{id}', 'ProductController@payment_order');

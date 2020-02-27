@@ -41,7 +41,7 @@
               <a href="{{URL::to('/view-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
               <i><img src="source/image/quanli/icons/group.png" width="20px"></i></a>
               <br>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa don hang này ko?')" href="{{URL::to('/delete-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn muốn xoá đơn hàng này!!')" href="{{URL::to('/delete-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class="">
               <i><img src="source/image/quanli/icons/user_delete.png" width="20px"></i>
               </a>
               <!-- <a href="##"><i><img src="source/image/quanli/icons/chuathanhtoan.png"></i></a> -->
